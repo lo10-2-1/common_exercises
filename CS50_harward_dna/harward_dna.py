@@ -11,12 +11,12 @@ dna = {'AGATC': 0, 'TTTTTTCT': 0, 'AATG': 0, 'TCTAG': 0,
         }
 
 for title, count in dna.items():
-    for i in range(len(dna_sequence)):
-        if title == dna_sequence[i:i+len(title)]:
+    i = dna_sequence.find(title)
+    temp = 1
+    for j in range(i, len(dna_sequence), len(title)):
+        if title*temp in dna_sequence[i:]:
             dna[title] += 1
-            if dna_sequence[i+len(title):i+(len(title)*2)] != title:
-                continue
-                
+            temp += 1
     dna[title] = str(dna[title])
 
 print(dna)
