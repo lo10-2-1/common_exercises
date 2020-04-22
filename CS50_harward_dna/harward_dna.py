@@ -1,9 +1,10 @@
 import csv
+from priv import PATH
 
-database_small = r"C:\\Users\\Lydia\\Projects\\Other\\harward_dna\\dna\\databases\\small.csv"
-database_large = r"C:\\Users\\Lydia\\Projects\\Other\\harward_dna\\dna\\databases\\large.csv"
+database_small = PATH + "databases\\small.csv"
+database_large = PATH + "databases\\large.csv"
 
-dna_sequence = open(r"C:\\Users\\Lydia\\Projects\\Other\\harward_dna\\dna\\sequences\\" + input() + ".txt", "r")
+dna_sequence = open(PATH + "sequences\\" + input() + ".txt", "r")
 dna_sequence = dna_sequence.read()
 
 dna = {'AGATC': 0, 'TTTTTTCT': 0, 'AATG': 0, 'TCTAG': 0, 
@@ -33,6 +34,8 @@ with open(database_small, "r", newline="") as f:
                         print(row['name'])
             else:
                 continue
+    if quan != 0:
+        print('No match')
 
 with open(database_large, "r", newline="") as f:
     reader = csv.DictReader(f)
@@ -46,6 +49,5 @@ with open(database_large, "r", newline="") as f:
                         print(row['name'])
             else:
                 continue
-    
-if quan != 0:
-    print('No match')
+    if quan != 0:
+        print('No match')
